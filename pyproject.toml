@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "david-math-py"
+version = "0.1.0"
+description = "David's Math problems"
+authors = ["David Guerrero <JCystems+D@GMail.com>"]
+license = "SEE LICENSE.md"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mathplot = "^0.1"
+mathpy = "^0.3.0"
+pandas = "^2.2.3"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.1.1"
+pytest = "^8.3.3"
+pytest-bdd = "^7.3.0"
+ruff = "^0.6.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
