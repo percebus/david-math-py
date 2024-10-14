@@ -14,7 +14,10 @@ mathpy = "^0.3.0"
 pandas = "^2.2.3"
 
 [tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
 jupyter = "^1.1.1"
+nbconvert = "^7.16.4"
+pypyr = "^5.9.1"
 pytest = "^8.3.3"
 pytest-bdd = "^7.3.0"
 ruff = "^0.6.9"
