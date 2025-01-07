@@ -1,1 +1,1 @@
--r requirements.in.txt
+-r requirements.uv.in.txt
