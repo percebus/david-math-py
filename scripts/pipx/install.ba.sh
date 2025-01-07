@@ -1,12 +1,18 @@
 #!/bin/bash
 
 set -e
+
+filename="requirements.pipx.txt"
+if [[ -z $(grep '[^[:space:]]' $filename) ]]; then
+  echo "${filename} is empty, skipping..."
+  exit 0
+fi
+
 set -v
 
-cwd=$(pwd)
-echo "[C]urrent [W]orking [D]irectory: ${cwd}"
-
-cat ${cwd}/requirements.pipx.txt | xargs -n 1 pipx install
+cat ${filename} | sed 's/.*/"&"/' | xargs -n 1 pipx install
+pipx ensurepath --prepend --force
+pipx list
 
 set +v
 set +e
