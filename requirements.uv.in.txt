@@ -233,8 +233,6 @@ pygments==2.19.1
     #   ipython
     #   jupyter-console
     #   nbconvert
-pyhamcrest==2.1.0
-    # via -r requirements.in
 pyparsing==3.2.1
     # via matplotlib
 python-dateutil==2.9.0.post0

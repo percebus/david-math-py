@@ -22,9 +22,7 @@ parse-type==0.6.4
     # via pytest-bdd
 pluggy==1.5.0
     # via pytest
-pyclean==3.0.0
-    # via david-math-py (pyproject.toml)
-pypyr==5.9.1
+pyhamcrest==2.1.0
     # via david-math-py (pyproject.toml)
 pytest==8.3.4
     # via
@@ -35,19 +33,7 @@ pytest-bdd==7.3.0
     # via david-math-py (pyproject.toml)
 pytest-cov==6.0.0
     # via david-math-py (pyproject.toml)
-python-dateutil==2.9.0.post0
-    # via pypyr
-ruamel-yaml==0.18.10
-    # via pypyr
-ruamel-yaml-clib==0.2.12 ; python_full_version < '3.13' and platform_python_implementation == 'CPython'
-    # via ruamel-yaml
-ruff==0.8.6
-    # via david-math-py (pyproject.toml)
 six==1.17.0
-    # via
-    #   parse-type
-    #   python-dateutil
-tomli-w==1.1.0
-    # via pypyr
+    # via parse-type
 typing-extensions==4.12.2
     # via pytest-bdd
