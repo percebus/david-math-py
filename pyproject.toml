@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12.7"
+
+# TODO? move to requirements.in? WHY?
 dependencies = [
     "ipykernel>=6.29.5",
     "jupyter>=1.1.1",
