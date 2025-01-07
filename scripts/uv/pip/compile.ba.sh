@@ -3,7 +3,7 @@
 set -e
 set -x
 
-uv pip compile requirements.in \
+uv pip compile pyproject.toml \
    --universal \
    --output-file requirements.uv.in.txt
 

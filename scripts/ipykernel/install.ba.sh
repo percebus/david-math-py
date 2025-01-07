@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ipykernel install --user --name .venv
+uv run -- ipykernel install --user --name .venv
