@@ -18,18 +18,29 @@ steps:
       set:
         PYLINT_CLI_ARGS: "--report y"
 
-  - name: pypyr.steps.echo
+  - name: pypyr.steps.call
     run: "{npm}"
+    in:
+      call:
+        - prettier
+
+  - name: pypyr.steps.call
+    in:
+      call:
+        - ruff
+
+prettier:
+  - name: pypyr.steps.echo
     in:
       echoMe: "=== npx prettier --check ===================================="
   - name: pypyr.steps.shell
-    run: "{npm}"
     in:
       cmd: "npx prettier {path} --check"
 
+ruff:
   - name: pypyr.steps.echo
     in:
-      echoMe: "=== ruff ===================================================="
+      echoMe: "=== ruff check =============================================="
   - name: pypyr.steps.shell
     in:
-      cmd: python -m ruff check {path}
+      cmd: ruff check {path}
