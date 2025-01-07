@@ -5,16 +5,24 @@ description = "Add your description here"
 readme = "README.md"
 license = "SEE LICENSE.md"
 requires-python = ">=3.12.7"
+
+# TODO move to requirements.in
 dependencies = [
     "ipykernel>=6.29.5",
     "jupyter>=1.1.1",
     "matplotlib>=3.10.0",
     "pandas>=2.2.3",
-    "pyclean>=3.0.0",
     "pyhamcrest>=2.1.0",
+]
+
+[project.optional-dependencies]
+cli = [
+    "pyclean>=3.0.0",
     "pypyr>=5.9.1",
+    "ruff>=0.8.6",
+]
+dev = [
     "pytest>=8.3.4",
     "pytest-bdd>=7.3.0,<8.0.0",
     "pytest-cov>=6.0.0",
-    "ruff>=0.8.6",
 ]

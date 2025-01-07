@@ -330,13 +330,19 @@ dependencies = [
     { name = "jupyter" },
     { name = "matplotlib" },
     { name = "pandas" },
-    { name = "pyclean" },
     { name = "pyhamcrest" },
+]
+
+[package.optional-dependencies]
+cli = [
+    { name = "pyclean" },
     { name = "pypyr" },
+    { name = "ruff" },
+]
+dev = [
     { name = "pytest" },
     { name = "pytest-bdd" },
     { name = "pytest-cov" },
-    { name = "ruff" },
 ]
 
 [package.metadata]
@@ -345,13 +351,13 @@ requires-dist = [
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "matplotlib", specifier = ">=3.10.0" },
     { name = "pandas", specifier = ">=2.2.3" },
-    { name = "pyclean", specifier = ">=3.0.0" },
+    { name = "pyclean", marker = "extra == 'cli'", specifier = ">=3.0.0" },
     { name = "pyhamcrest", specifier = ">=2.1.0" },
-    { name = "pypyr", specifier = ">=5.9.1" },
-    { name = "pytest", specifier = ">=8.3.4" },
-    { name = "pytest-bdd", specifier = ">=7.3.0,<8.0.0" },
-    { name = "pytest-cov", specifier = ">=6.0.0" },
-    { name = "ruff", specifier = ">=0.8.6" },
+    { name = "pypyr", marker = "extra == 'cli'", specifier = ">=5.9.1" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.4" },
+    { name = "pytest-bdd", marker = "extra == 'dev'", specifier = ">=7.3.0,<8.0.0" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0.0" },
+    { name = "ruff", marker = "extra == 'cli'", specifier = ">=0.8.6" },
 ]
 
 [[package]]
