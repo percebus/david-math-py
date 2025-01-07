@@ -28,7 +28,6 @@ jobs:
         run: bash scripts/install.ba.sh
 
       - uses: percebus/github-actions-node/.github/actions/node_setup@main
-      - uses: percebus/github-actions-npm/.github/actions/npm_install@main
 
       - name: pypyr lint
         run: uv run -- pypyr lint stats=True
