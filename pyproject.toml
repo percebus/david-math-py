@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "David's math problems and solutions"
 readme = "README.md"
 requires-python = ">=3.12.7"
-package-mode = false
 
 # TODO? move to requirements.in? WHY?
 dependencies = [
