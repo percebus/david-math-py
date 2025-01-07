@@ -4,9 +4,13 @@ on:
 
 env:
   OS: ubuntu-latest
-  ARCHITECTURE: x64
 
   PYTHON_VERSION: 3.12.x
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
 
 jobs:
   verify:
