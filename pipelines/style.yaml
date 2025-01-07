@@ -13,26 +13,40 @@ steps:
         stats: False
 
   - name: pypyr.steps.call
+    run: "{npm}"
     in:
-      call: style
+      call:
+        - prettier
+
+  - name: pypyr.steps.call
+    in:
+      call:
+        - ruff
 
   - name: pypyr.steps.shell
     run: "{lint}"
     in:
-      cmd: "python -m pypyr lint path={path} npm={npm} stats={stats}"
+      cmd: "pypyr lint path={path} npm={npm} stats={stats}"
 
-style:
+prettier:
   - name: pypyr.steps.echo
-    run: "{npm}"
     in:
       echoMe: "=== npx prettier --write ======================================"
   - name: pypyr.steps.shell
     in:
       cmd: "npx prettier {path} --write"
 
+ruff:
   - name: pypyr.steps.echo
     in:
-      echoMe: "=== ruff check --fix ================================================"
+      echoMe: "=== ruff check --fix ========================================="
   - name: pypyr.steps.shell
     in:
-      cmd: python -m ruff check --fix {path}
+      cmd: ruff check --fix {path}
+
+  - name: pypyr.steps.echo
+    in:
+      echoMe: "=== ruff format --fix ========================================"
+  - name: pypyr.steps.shell
+    in:
+      cmd: ruff format {path}

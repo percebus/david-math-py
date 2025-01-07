@@ -1,29 +1,20 @@
-[tool.poetry]
+[project]
 name = "david-math-py"
 version = "0.1.0"
-description = "David's Math problems"
-authors = ["David Guerrero <JCystems+D@GMail.com>"]
-license = "SEE LICENSE.md"
+description = "Add your description here"
 readme = "README.md"
-package-mode = false
-
-[tool.poetry.dependencies]
-python = "^3.12"
-matplotlib = "^3.9.2"
-pandas = "^2.2.3"
-pyhamcrest = "^2.1.0"
-
-[tool.poetry.group.dev.dependencies]
-ipykernel = "^6.29.5"
-jupyter = "^1.1.1"
-nbconvert = "^7.16.4"
-pyclean = "^3.0.0"
-pypyr = "^5.9.1"
-pytest = "^8.3.3"
-pytest-bdd = "^7.3.0"
-pytest-cov = "^6.0.0"
-ruff = "^0.6.9"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+license = "SEE LICENSE.md"
+requires-python = ">=3.12.7"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.0",
+    "pandas>=2.2.3",
+    "pyclean>=3.0.0",
+    "pyhamcrest>=2.1.0",
+    "pypyr>=5.9.1",
+    "pytest>=8.3.4",
+    "pytest-bdd>=7.3.0,<8.0.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.8.6",
+]
