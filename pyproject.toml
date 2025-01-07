@@ -16,6 +16,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# TODO use requirements.uv_tools.txt
+# Like requirements.pipx.txt
 cli = [
     "pyclean>=3.0.0",
     "pypyr>=5.9.1",

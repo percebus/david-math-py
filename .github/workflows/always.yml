@@ -1,0 +1,55 @@
+name: "[C]ontinuous [I]ntegration"
+on:
+  push:
+
+env:
+  OS: ubuntu-latest
+  ARCHITECTURE: x64
+
+  PYTHON_VERSION: 3.12.x
+
+jobs:
+  verify:
+    name: Verify
+    needs: semantic-release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+
+      - name: setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: setup python @ ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          # python-version-file: .python-version # TODO?
+          # python-version-file: pyproject.toml # TODO?
+
+      - name: pip install
+        run: bash scripts/setup.ba.sh
+
+      - uses: percebus/github-actions-node/.github/actions/node_setup@main
+      - uses: percebus/github-actions-npm/.github/actions/npm_install@main
+
+      - name: pypyr lint
+        run: uv run -- pypyr lint stats=True
+
+      - name: pypyr test
+        run: uv run -- pypyr ci lint=False
+
+      - name: Publish test-results.xml Summary
+        if: always()
+        uses: pmeier/pytest-results-action@main
+        with:
+          path: test-results.xml
+          summary: true
+          display-options: fEX
+          fail-on-empty: true
+          title: Test results
+
+      - name: Publish test-results.xml
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            test-results.xml
