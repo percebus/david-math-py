@@ -1,3 +1,3 @@
 #!/bin/bash
 
-uvx jupyter nbconvert jupyter/RealPython/styling.ipynb --to pdf
+uvx --from jupyter-core jupyter nbconvert jupyter/RealPython/styling.ipynb --to pdf
