@@ -19,39 +19,20 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
-      - name: setup uv
-        uses: astral-sh/setup-uv@v5
-      - name: setup python @ ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          # python-version-file: .python-version # TODO?
-          # python-version-file: pyproject.toml # TODO?
+      - uses: percebus/github-actions-python/.github/actions/setup@main
 
-      - name: pip install
+      - name: install.ba.sh
         run: bash scripts/install.ba.sh
 
-      - uses: percebus/github-actions-node/.github/actions/node_setup@main
+      - uses: percebus/github-actions-node/.github/actions/setup@main
 
       - name: pypyr lint
-        run: uv run -- pypyr lint stats=True
+        run: uvx run pypyr lint stats=True
 
       - name: pypyr test
-        run: uv run -- pypyr ci lint=False
+        run: uvx pypyr ci lint=False
 
-      - name: Publish test-results.xml Summary
-        if: always()
-        uses: pmeier/pytest-results-action@main
+      - uses: percebus/github-actions-testing/.github/actions/junit@main
         with:
-          path: test-results.xml
-          summary: true
-          display-options: fEX
-          fail-on-empty: true
-          title: Test results
-
-      - name: Publish test-results.xml
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: |
-            test-results.xml
+          tests_name: "" # disables actions/test-reporter. It doesn't like pytest's junit format
+          files_pattern: test-results.xml
