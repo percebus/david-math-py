@@ -27,10 +27,10 @@ jobs:
       - uses: percebus/github-actions-node/.github/actions/setup@main
 
       - name: pypyr lint
-        run: uvx run pypyr lint stats=True
+        run: uv run pypyr -- lint stats=True
 
       - name: pypyr test
-        run: uvx pypyr ci lint=False
+        run: uv run pypyr -- ci lint=False
 
       - uses: percebus/github-actions-testing/.github/actions/junit@main
         with:
